@@ -1,0 +1,45 @@
+BRAIN DUMP
+Rough plan/thinking through the task:
+
+WELCOME WINDOW
+--> Initial text printed to show options and link to a switch case:
+Welcome to Cipher Central! Encripting and decripting messages since '19. 
+Please enter the letter corresponding to your desired action (eg. a<ENTER>):  
+	a) Rotation cipher encription
+	b) Sunstitution cipher encription
+	c) Rotation cipher decription
+	d) Substitution cipher decription
+	
+	the response will prob need to be stored in a variable, i'll call it 'action'. Prob char
+	
+	REMEMBER: default error message to say invalid entry.
+	This should then bring the welcome window back up until the user puts in one of the predetermined options
+	
+
+BEFORE THE CIPHER
+Call a cleaning function? (helloHousekeeping)
+Set all of the index memory allocation to zero before starting. (Is this nesseccary? Hmm come back to it)  
+
+
+MAIN CIPHER
+--> Hard code first!
+--> Count the characters in the input string
+--> Spaces are 32 in ASCII, remember the indexes of spaces in the string, will prob need this somehow when print back to console
+--> Condition: characters from 65 to 90 (numerical value of aphabet A to Z) 
+	Only want to adjust these values using our key
+	
+	
+a)	Rotation: shift them by a set value for each character
+	this was demo'd prob Tue Wk 6 - wait - it was setting them back to indexes 0-25 by minusing 65(? yes A = 65 that makes sense).
+	change rotCiphEnc to roundAndRoundWeGo (? too long? Makes it a little entertaining! gettingSchwifty? Prob not informative)
+	if numbers fall off the end during the execution of they need to be pushed back to the beginning, maybe:
+		if x > 25
+			x -= 25
+	
+	
+	
+	sidenote: could add an extra encyption key to encode each of the space characters to & then * then ^ in rotation
+	nah not really helpful because they'd obviously be seen as place holders as letters are being encripted to letters only
+	
+	
+	
