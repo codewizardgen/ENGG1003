@@ -35,5 +35,6 @@ char RotEnc (char x) {
 char RotDec (char x){
     char key = 5;
     x = (x - key)%26;
+    x+=65;
     return x;
 }
