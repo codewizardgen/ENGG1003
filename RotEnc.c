@@ -21,9 +21,10 @@ int main(void)
 	return 0;
 }
 
-char RotEnc (char x) {
-    x = x + 5;
-    if (x >= 26) {
-        x-=26;
-    }
+char RotEnc (char x) {     
+    char key = 5;
+    x = (x + key)%26;
+    //if (x >= 26) {            
+    //    x-=26;
+    //}
 }
