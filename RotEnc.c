@@ -2,26 +2,23 @@
 
 char rotEnc (char x);
 char rotDec (char x);
-void helloHousekeeping (char *x, int N);
+void helloHousekeeping (char *x, int MAX);
+int theCount (char *x, char MAX);
+char normalise (char *x, char index, int MAX);
 
 int main(void)
 {
     int index = 0;
     const int MAX = 200;
-    char text[] = "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU";
-    for(index = 0; index < MAX; index++){
-        helloHousekeeping(text, MAX);                       //Call the cleaning function
-        if (text[index] >= 65 && text[index]<=90){
-            int temp = text[index]-65;
-    	    int encryption = rotEnc (temp);
-    	    printf("%c ", encryption);
-    	    int decryption = rotDec (temp);
-    	    printf("%c", decryption);
-        }
-	    else {
-	        printf(" ");
-	    }
-	}
+    char text[] = "YAHTZEE";
+    
+    helloHousekeeping(text, MAX);                       //Call the cleaning function
+    normalise (text, index, MAX);
+    
+    for (text >= 65 && text <=90){
+        printf ("%c", rotEnc(text));
+    }
+
 	return 0;
 }
 /*---------ROTATION ENCRYPTION FUNCTION: 'RotEnc'---------------------------
@@ -66,4 +63,26 @@ void helloHousekeeping (char *x, int MAX){
         x[index] = 0;
         return;
     }   
+}
+
+int theCount (char *x, char MAX){
+    int index = 0, sum = 0;
+    for (index = 0; index < MAX; index++){
+        sum += x[index];
+        return sum;
+    }
+}
+
+char normalise (char *x, char index, int MAX){
+    int norm;
+    for(index = 0; index < MAX; index++){
+        if (x[index] >= 65 && x[index]<=90){
+                norm = x[index]-65;
+            }
+        else {
+            continue;       //Neccessary?
+            }
+    }
+
+    return norm;
 }
