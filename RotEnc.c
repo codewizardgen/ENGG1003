@@ -4,7 +4,7 @@ char rotEnc (char x);
 char rotDec (char x);
 void helloHousekeeping (char *x, int MAX);
 int theCount (char *x, char MAX);
-char normalise (char *x, char index, int MAX);
+//char normalise (char *x, char index, int MAX);
 
 int main(void)
 {
@@ -12,12 +12,23 @@ int main(void)
     const int MAX = 200;
     char text[] = "YAHTZEE";
     
-    helloHousekeeping(text, MAX);                       //Call the cleaning function
-    normalise (text, index, MAX);
-    
-    for (text >= 65 && text <=90){
-        printf ("%c", rotEnc(text));
+    for(index = 0; index < MAX; index++){
+        //Call the cleaning function
+        helloHousekeeping(text, MAX);  
+        if (text[index] >= 65 && text[index] <=90){
+  
+            //Normalize before encryption using the key
+            //i.e. Change ASCII values of letters so the A - Z spans 0 - 25
+            char norm = text[index]-65;
+            printf ("%c", rotEnc(norm));
+        }
+        else {
+	        printf(" ");
+	    }
     }
+    
+        
+   // }
 
 	return 0;
 }
@@ -48,6 +59,8 @@ char rotDec (char x){
     return x;
 }
 /*------CLEANING FUNCTION: 'helloHousekeeping'----------------
+What it does --> Sets all the memory addresses allocated to the array to 0
+             --> Gets rid of old garbage numbers that may be stored there
 INPUT:  Pointer to the first element of array and 
         the MAX number of elements in the array 
 OUTPUT: there is none - this is why void is used before the name 'helloHousekeeping'
@@ -65,6 +78,7 @@ void helloHousekeeping (char *x, int MAX){
     }   
 }
 
+
 int theCount (char *x, char MAX){
     int index = 0, sum = 0;
     for (index = 0; index < MAX; index++){
@@ -73,7 +87,7 @@ int theCount (char *x, char MAX){
     }
 }
 
-char normalise (char *x, char index, int MAX){
+/* char normalise (char *x, char index, int MAX){
     int norm;
     for(index = 0; index < MAX; index++){
         if (x[index] >= 65 && x[index]<=90){
@@ -85,4 +99,4 @@ char normalise (char *x, char index, int MAX){
     }
 
     return norm;
-}
+} */
