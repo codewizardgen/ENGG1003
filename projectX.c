@@ -62,17 +62,24 @@ int main(){
         int p, j;
         int *pAL;
         for(i=0; i<MAX; i++){
-            if(message3[i]==79){
-                for(j=0; j<MAX; j++){
-                    if(key2[j]==65){
-                        //*pAL = key3[j];         //at the index of A in the key(3), what is 
-                        printf("%d", j);        //there is no A in this example     
-                    }
-                }      
+            if(key2[i]==79){            //scan through key2 elements to find O              
+                p = i;                  //use p to hold the place?
+                printf("%d\n%d\n", i, key3[i]);      //in this case i = 8, key3[i]=73=I
+                printf("%d\n", key2[i]-key3[i]);            // OUTPUT = 6
+                *pAL = key2[i]-key3[i];
+                printf("%p", pAL);                      //Seg fault!!
+                
+             
+             //for(j=0; j<MAX; j++){
+                //    if(key2[j]==65){
+                //        //*pAL = key3[j];         //at the index of A in the key(3), what is 
+                //        printf("%d", j);        //there is no A in this example     
+                //    }
+                //}      
             }
-            if(key3[i]==79){
-              i = *pAL;
-            }      
+           // if(key3[i]==79){
+           //   i = *pAL;
+           // }      
         }
 
         //}
