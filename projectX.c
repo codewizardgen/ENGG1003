@@ -11,10 +11,11 @@ int main(){
     ////////////////////////
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    char message3[40]= "ABC DEF$GHIJK&&LMNOPQRSTUV WXYZ";
-    char message4[40]= "QWE RTY$UIOPA&&SDFGHJKLZXC VBNM";
+    char message3[40]= "IF IT'S YELLOW LET IT MELLOW!";
+    char message4[40]= "OY OZ'L NTSSGV STZ OZ DTSSGV!";
     int key = 3;
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    char key3[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int length = 40;
     int i;
     
@@ -34,7 +35,7 @@ int main(){
     
     //hard coded input based switch 
     //encode_type=1; //1=rotary, 2=substitution
-    int encode_type = 3;
+    int encode_type = 4;
     if (encode_type==1){
         rotEnc(k, MAX, message);    
     }
@@ -49,16 +50,14 @@ int main(){
          //////////////////
     //DEVELOPMENT ZONE (before turning into function)
     /////////////////////
-    // Substitution
+    // Substitution decryption
     
-/*        for (i=0; i<length; i++){
-            int j;
-            for(j=0; j<26; j++){
-                if(message3[i]==65+j){
-                    message3[i]=key2[j];
-                }
-            }
-*/
+        printf("back in development zone\n");
+        
+        subEnc(key2, MAX, message4);
+        //this wont work because not same index
+        //need to scan through key2 and find address of O (eg) should be &key2[8]
+        //then substitute with the letter at the same address in key3
 
     }
 }
