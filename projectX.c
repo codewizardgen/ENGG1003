@@ -45,14 +45,17 @@ int main(){
     /////////////////////
     // Substitution
     
-        for (i=0; i<length; i++){
+/*        for (i=0; i<length; i++){
             int j;
             for(j=0; j<26; j++){
                 if(message3[i]==65+j){
                     message3[i]=key2[j];
                 }
             }
-/*            if(message3[i]==65){
+*/
+//if a character of message3 is A(65) it will be changed to the letter at the first memory address of key2
+//if a character of message3 is B(66) it will be changed to the letter at the second memory address of key 2 etc.
+           if(message3[i]==65){                 
                 message3[i]= key2[0];
             }
             else if(message3[i]==66){
@@ -70,12 +73,26 @@ int main(){
             else if(message3[i]==70){
                 message3[i]= key2[5];
             }
+            else if(message3[i]==71){
+                message3[i]= key2[6];
+            }
+            else if(message3[i]==72){
+                message3[i]= key2[7];
+            }
+            else if(message3[i]==73){
+                message3[i]= key2[8];
+            }
+            else if(message3[i]==74){
+                message3[i]= key2[9];
+            }
+            else if(message3[i]==75){
+                message3[i]= key2[10];
+            }
             else
                 message3[i]= message3[i];
-        */
+
         }
         printf("%s", message3);
-    }
 }
 
 /////////////////////////////////////
