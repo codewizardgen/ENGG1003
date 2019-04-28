@@ -12,6 +12,7 @@ int main(){
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
     char message3[40]= "ABC!DEF*GHIJKL MNO PQR STU VWX YZ";
+    char message4[40]= "JVM!KMN*BGGHAL DFG HJK LMB CVB NM";
     int key = 3;
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     int length = 40;
@@ -41,6 +42,7 @@ int main(){
         rotDec(k, MAX, message2);
     }
     else if (encode_type==3){
+        printf("\n %d\n", key2[0]);
         subEnc(key2, MAX, message3);
     }
 
@@ -102,87 +104,88 @@ void subEnc(char *k, int MAX, char *text){
 //if a character of message3 is A(65) it will be changed to the letter at the first memory address of key (k)
 //if a character of message3 is B(66) it will be changed to the letter at the second memory address of key (k) etc.
     int i;
+    char temp_text[50];
     for(i=0; i<MAX; i++){
         if(text[i]==65){                 
-            text[i]= k[0];
+            temp_text[i]= k[0];
         }
         if(text[i]==66){
-            text[i]= k[1];
+            temp_text[i]= k[1];
         }
         if(text[i]==67){
-            text[i]= k[2];
+            temp_text[i]= k[2];
         }
         if(text[i]==68){
-            text[i]= k[3];
+            temp_text[i]= k[3];
         }
         if(text[i]==69){
-            text[i]= k[4];
+            temp_text[i]= k[4];
         }
         if(text[i]==70){
-            text[i]= k[5];
+            temp_text[i]= k[5];
         }
         if(text[i]==71){
-            text[i]= k[6];
+            temp_text[i]= k[6];
         }
         if(text[i]==72){
-            text[i]= k[7];
+            temp_text[i]= k[7];
         }
         if(text[i]==73){
-            text[i]= k[8];
+            temp_text[i]= k[8];
         }
         if(text[i]==74){
-            text[i]= k[9];
+            temp_text[i]= k[9];
         }
         if(text[i]==75){
-            text[i]= k[10];
+            temp_text[i]= k[10];
         }
         if(text[i]==76){
-            text[i]= k[11];
+            temp_text[i]= k[11];
         }
         if(text[i]==77){
-            text[i]= k[12];
+            temp_text[i]= k[12];
         }
         if(text[i]==78){
-            text[i]= k[13];
+            temp_text[i]= k[13];
         }
         if(text[i]==79){
-            text[i]= k[14];
+            temp_text[i]= k[14];
         }
         if(text[i]==80){
-            text[i]= k[15];
+            temp_text[i]= k[15];
         }
         if(text[i]==81){
-            text[i]= k[16];
+            temp_text[i]= k[16];
         }
         if(text[i]==82){
-            text[i]= k[17];
+            temp_text[i]= k[17];
         }
         if(text[i]==83){
-            text[i]= k[18];
+            temp_text[i]= k[18];
         }
         if(text[i]==84){
-            text[i]= k[19];
+            temp_text[i]= k[19];
         }
         if(text[i]==85){
-            text[i]= k[20];
+            temp_text[i]= k[20];
         }
         if(text[i]==86){
-            text[i]= k[21];
+            temp_text[i]= k[21];
         }
         if(text[i]==87){
-            text[i]= k[22];
+            temp_text[i]= k[22];
         }
         if(text[i]==88){
-            text[i]= k[23];
+            temp_text[i]= k[23];
         }
         if(text[i]==89){
-            text[i]= k[24];
+            temp_text[i]= k[24];
         }
         if(text[i]==90){
-            text[i]= k[25];
+            temp_text[i]= k[25];
         }
         else
-            text[i]= text[i];       //not nessecary just thinking through
+            temp_text[i]= text[i];       //not nessecary just thinking through
         } 
-    printf("%s\n", text);
+    printf("%s\n", temp_text);
     }
