@@ -59,15 +59,25 @@ int main(){
         //need to scan through key2 and find address of O (eg) should be &key2[8]
         //then substitute with the letter at the same address in key3
         char temp_text[50];
-        int p, j;
-        int *pAL;
+        int p, j=0;
+        int diff;
         for(i=0; i<MAX; i++){
             if(key2[i]==79){            //scan through key2 elements to find O              
-                p = i;                  //use p to hold the place?
                 printf("%d\n%d\n", i, key3[i]);      //in this case i = 8, key3[i]=73=I
                 printf("%d\n", key2[i]-key3[i]);            // OUTPUT = 6
-                *pAL = key2[i]-key3[i];
-                printf("%p", pAL);                      //Seg fault!!
+                diff = key2[i]-key3[i];                 //diff between letters to be exchanged
+                printf("%d\n", diff);
+            }
+        }
+        for(i=0; i<MAX; i++){
+            if(message3[i]==79){
+                temp_text[i] = 79 - diff;
+            }
+        }
+        //printf("%s", temp_text);
+        for(i=0; i<MAX; i++){
+           printf("%c", temp_text[i]);
+        }
                 
              
              //for(j=0; j<MAX; j++){
@@ -76,19 +86,19 @@ int main(){
                 //        printf("%d", j);        //there is no A in this example     
                 //    }
                 //}      
-            }
+            //}
            // if(key3[i]==79){
            //   i = *pAL;
            // }      
-        }
+        //}
 
         //}
         //}
 
 
 
-    }
-}
+    }       //close else
+}              //close main
 
 /////////////////////////////////////
 //FUNCTION DEFINITIONS
