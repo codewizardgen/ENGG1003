@@ -1,24 +1,30 @@
 #include <stdio.h>
 
-//https://www.youtube.com/watch?v=qEQI4wJ1_9g
-//SUBTRACTING POINTERS (same array)
-//EQUALS: number of elements separating 
-//(the elements to which the pointers correspond)
+//https://www.youtube.com/watch?v=Wp2OLv7L6LY
+//INTRO TO FUNCTIONS
+//Each has a unique name, which is used to call the function in main
+//'Calling' a function causes the code within the function to execute
+//A function is like an island- independant.
+//Each function performs a specific task and can return a value (only one)
+
+int sum();          //the function definition is known as forward declaration
 
 int main(){
-    //declare and initialise an array
-    int x[] = {1, 2, 3, 4, 5};
-    //declare two pointers j and i
-    int *j, *i;
-    //store the address of the 1st element in j
-    j = &x[1];    //same as j = x + 1
-    //store the address of the 1st element in i
-    i = &x[4];    //same as i = x + 4
- 
-    printf("%lu\n", i-j); //same as (x+4)-(x+1) = 3
-    //note used %d initially but error said it's 'long int'
- 
-    return 0;
+
+    int r1 = sum();
+    int r2 = sum();
+    printf("Result 1: %d\nResult 2 %d\n", r1, r2);
 }
 
+int sum(){
+    int a, b, c;
+    printf("Enter the first number: \n");
+    scanf("%d", &a);
+    printf("Enter the second number: \n");
+    scanf("%d", &b);
+    printf("Enter the third number: \n");
+    scanf("%d", &c);
+    //printf("Sum of %d, %d & %d is %d\n", a, b, c, a+b+c);
+    return a+b+c;
+}
     
