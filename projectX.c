@@ -11,8 +11,8 @@ int main(){
     ////////////////////////
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    char message3[40]= "ABC!DEF*GHIJKL MNO PQR STU VWX YZ";
-    char message4[40]= "JVM!KMN*BGGHAL DFG HJK LMB CVB NM";
+    char message3[40]= "ABC DEF$GHIJK&&LMNOPQRSTUV WXYZ";
+    char message4[40]= "QWE RTY$UIOPA&&SDFGHJKLZXC VBNM";
     int key = 3;
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     int length = 40;
@@ -42,7 +42,6 @@ int main(){
         rotDec(k, MAX, message2);
     }
     else if (encode_type==3){
-        printf("\n %d\n", key2[0]);
         subEnc(key2, MAX, message3);
     }
 
@@ -184,8 +183,14 @@ void subEnc(char *k, int MAX, char *text){
         if(text[i]==90){
             temp_text[i]= k[25];
         }
-        else
-            temp_text[i]= text[i];       //not nessecary just thinking through
+        else if (text[i]<65||text[i]>90) {
+            temp_text[i]= text[i];       
+        }
+           
         } 
+  
+//    for(i=0; i<MAX; i++){
+//        printf("%c", temp_text[i]);
+//    }
     printf("%s\n", temp_text);
     }
