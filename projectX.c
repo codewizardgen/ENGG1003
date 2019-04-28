@@ -2,6 +2,7 @@
 
 void rotEnc(int k, int MAX, char *text);
 void rotDec(int k, int MAX, char *text);
+void subEnc(char *k, int MAX, char *text);
 
 int main(){
     
@@ -39,6 +40,10 @@ int main(){
     else if (encode_type==2){
         rotDec(k, MAX, message2);
     }
+    else if (encode_type==3){
+        subEnc(key2, MAX, message3);
+    }
+
     else {
          //////////////////
     //DEVELOPMENT ZONE (before turning into function)
@@ -53,93 +58,8 @@ int main(){
                 }
             }
 */
-//if a character of message3 is A(65) it will be changed to the letter at the first memory address of key2
-//if a character of message3 is B(66) it will be changed to the letter at the second memory address of key 2 etc.
-           for(i=0; i<MAX; i++){
-               if(message3[i]==65){                 
-                    message3[i]= key2[0];
-                }
-                if(message3[i]==66){
-                    message3[i]= key2[1];
-                }
-                if(message3[i]==67){
-                    message3[i]= key2[2];
-                }
-                if(message3[i]==68){
-                    message3[i]= key2[3];
-                }
-                if(message3[i]==69){
-                    message3[i]= key2[4];
-                }
-                if(message3[i]==70){
-                    message3[i]= key2[5];
-                }
-                if(message3[i]==71){
-                    message3[i]= key2[6];
-                }
-                if(message3[i]==72){
-                    message3[i]= key2[7];
-                }
-                if(message3[i]==73){
-                    message3[i]= key2[8];
-                }
-                if(message3[i]==74){
-                    message3[i]= key2[9];
-                }
-                if(message3[i]==75){
-                    message3[i]= key2[10];
-                }
-                if(message3[i]==76){
-                    message3[i]= key2[11];
-                }
-                if(message3[i]==77){
-                    message3[i]= key2[12];
-                }
-                if(message3[i]==78){
-                    message3[i]= key2[13];
-                }
-                if(message3[i]==79){
-                    message3[i]= key2[14];
-                }
-                if(message3[i]==80){
-                    message3[i]= key2[15];
-                }
-                if(message3[i]==81){
-                    message3[i]= key2[16];
-                }
-                if(message3[i]==82){
-                    message3[i]= key2[17];
-                }
-                if(message3[i]==83){
-                    message3[i]= key2[18];
-                }
-                if(message3[i]==84){
-                    message3[i]= key2[19];
-                }
-                if(message3[i]==85){
-                    message3[i]= key2[20];
-                }
-                if(message3[i]==86){
-                    message3[i]= key2[21];
-                }
-                if(message3[i]==87){
-                    message3[i]= key2[22];
-                }
-                if(message3[i]==88){
-                    message3[i]= key2[23];
-                }
-                if(message3[i]==89){
-                    message3[i]= key2[24];
-                }
-                if(message3[i]==90){
-                    message3[i]= key2[25];
-                }
-                else
-                    message3[i]= message3[i];       //not nessecary just thinking through
-            } 
 
-        }
-        printf("%s\n", message3);
+    }
 }
 
 /////////////////////////////////////
@@ -178,3 +98,91 @@ void rotDec(int k, int MAX, char *text){
     printf("\n");
 }
 
+void subEnc(char *k, int MAX, char *text){
+//if a character of message3 is A(65) it will be changed to the letter at the first memory address of key (k)
+//if a character of message3 is B(66) it will be changed to the letter at the second memory address of key (k) etc.
+    int i;
+    for(i=0; i<MAX; i++){
+        if(text[i]==65){                 
+            text[i]= k[0];
+        }
+        if(text[i]==66){
+            text[i]= k[1];
+        }
+        if(text[i]==67){
+            text[i]= k[2];
+        }
+        if(text[i]==68){
+            text[i]= k[3];
+        }
+        if(text[i]==69){
+            text[i]= k[4];
+        }
+        if(text[i]==70){
+            text[i]= k[5];
+        }
+        if(text[i]==71){
+            text[i]= k[6];
+        }
+        if(text[i]==72){
+            text[i]= k[7];
+        }
+        if(text[i]==73){
+            text[i]= k[8];
+        }
+        if(text[i]==74){
+            text[i]= k[9];
+        }
+        if(text[i]==75){
+            text[i]= k[10];
+        }
+        if(text[i]==76){
+            text[i]= k[11];
+        }
+        if(text[i]==77){
+            text[i]= k[12];
+        }
+        if(text[i]==78){
+            text[i]= k[13];
+        }
+        if(text[i]==79){
+            text[i]= k[14];
+        }
+        if(text[i]==80){
+            text[i]= k[15];
+        }
+        if(text[i]==81){
+            text[i]= k[16];
+        }
+        if(text[i]==82){
+            text[i]= k[17];
+        }
+        if(text[i]==83){
+            text[i]= k[18];
+        }
+        if(text[i]==84){
+            text[i]= k[19];
+        }
+        if(text[i]==85){
+            text[i]= k[20];
+        }
+        if(text[i]==86){
+            text[i]= k[21];
+        }
+        if(text[i]==87){
+            text[i]= k[22];
+        }
+        if(text[i]==88){
+            text[i]= k[23];
+        }
+        if(text[i]==89){
+            text[i]= k[24];
+        }
+        if(text[i]==90){
+            text[i]= k[25];
+        }
+        else
+            text[i]= text[i];       //not nessecary just thinking through
+        } 
+    printf("%s\n", text);
+    }
