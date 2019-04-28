@@ -54,10 +54,31 @@ int main(){
     
         printf("back in development zone\n");
         
-        subEnc(key2, MAX, message4);
+        //subEnc(key2, MAX, message4);
         //this wont work because not same index
         //need to scan through key2 and find address of O (eg) should be &key2[8]
         //then substitute with the letter at the same address in key3
+        char temp_text[50];
+        int p, j;
+        int *pAL;
+        for(i=0; i<MAX; i++){
+            if(message3[i]==79){
+                for(j=0; j<MAX; j++){
+                    if(key2[j]==65){
+                        //*pAL = key3[j];         //at the index of A in the key(3), what is 
+                        printf("%d", j);        //there is no A in this example     
+                    }
+                }      
+            }
+            if(key3[i]==79){
+              i = *pAL;
+            }      
+        }
+
+        //}
+        //}
+
+
 
     }
 }
