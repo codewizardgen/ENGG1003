@@ -7,53 +7,26 @@
 
 int main(){
     //learning about arrays and pointers
-    int str[30] = {13, 12, 11, 7, 6} ;
+    char str[30] = "Let me try a string instead" ;
     
     //print the address of the first element of the array
-    //print the name of the array and
+    //print the value of the name of the array
     //NOTE: That these two are the same
     //These are both pointers hence %p required
     printf("%p %p\n", &str[0], str);
-    
-    //print the integer stored address of the first element of array
-    printf("%d\n", *str);
-    //print the element stored at the address of the next element of the array
-    printf("%d %d\n", *(str + 1), str[1]);
-    
-    //The following loop moves through each array element using index incrementation
-    //print all the elements of the array on a new line
-    //print all of the elements of the array using pointer syntax
+ 
+    //Print the string of characters using pointer (array name)
+    //REMEMBER: * to dereference the pointer
+    //THUS: obtain the characters (%c) at that address
+    //Create a loop to cycle through each index
     int i;
-    for (i=0; i<5; i++){
-        printf("str[i]: %d\n", str[i]);
-        printf("*(str + i): %d\n", *(str + i));
+    for (i=0; i<30; i++){
+        printf("%c", *(str+i));
     }
-    
-    //NOTE: str[i]= *(str+i) = *(i+str) = i[str]
-    //Hence the following loop will render the same output 
-    //(but with no duplicate as above)
-   
-   
-   /* PROOF: ARRAY NAMES ARE POINTERS*/
-    for (i=0; i<5; i++){
-        printf("i[str]: %d\n", i[str]);
-    }
-    
-    //lets's create a pointer to the first array variable
-    int *pstr;
-    //in pstr, store the first index address of the array (str)
-    //pstr thus a pointer variable to the first element of the array
-    pstr = str;
-    //print the second variable of the array
-    //* in this case dereferences the pointer
-    //meaning: instead of the address, give me the integer at that address
-    printf("*(pstr + 1): %d\n", *(pstr + 1));
-    printf("pstr[1]: %d\n", pstr[1]);
-    
-    //print all integers using pointer dereferencing
-    for (i=0; i<5; i++){
-        printf("*(pstr + i): %d\n", *(pstr + i));
-    }
-    
-    
+    printf("\n");
+
+ 
+    return 0;
 }
+
+    
