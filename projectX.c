@@ -69,9 +69,14 @@ int main(){
                 printf("%d\n", diff);
             }
         }
+        printf("%s", message3);
+        
         for(i=0; i<MAX; i++){
-            if(message3[i]==79){
+            if(message4[i]==79){
                 temp_text[i] = 79 - diff;
+            }
+            else{
+                temp_text[i] = message4[i];
             }
         }
         //printf("%s", temp_text);
