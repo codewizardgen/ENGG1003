@@ -10,7 +10,7 @@ int main(){
     ////////////////////////
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    char message3[30]= "AAABBBCCCDDDEEEFFFGGGHHHIIIJJJ";
+    char message3[40]= "ABC DEF GHI JKL MNO PQR STU VWX YZ";
     int key = 3;
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     int length = 30;
@@ -48,6 +48,21 @@ int main(){
         for (i=0; i<length; i++){
             if(message3[i]==65){
                 message3[i]= key2[0];
+            }
+            else if(message3[i]==66){
+                message3[i]= key2[1];
+            }
+            else if(message3[i]==67){
+                message3[i]= key2[2];
+            }
+            else if(message3[i]==68){
+                message3[i]= key2[3];
+            }
+            else if(message3[i]==69){
+                message3[i]= key2[4];
+            }
+            else if(message3[i]==70){
+                message3[i]= key2[5];
             }
             else
                 message3[i]= message3[i];
