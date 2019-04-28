@@ -50,6 +50,10 @@ int main(){
     printf("*(pstr + 1): %d\n", *(pstr + 1));
     printf("pstr[1]: %d\n", pstr[1]);
     
+    //print all integers using pointer dereferencing
+    for (i=0; i<5; i++){
+        printf("*(pstr + i): %d\n", *(pstr + i));
+    }
     
     
 }
