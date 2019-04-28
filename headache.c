@@ -24,7 +24,15 @@ int main(){
         printf("%c", *(str+i));
     }
     printf("\n");
+    
+    //what if I just want to print the first word
+    //use %s to read a string
+    //NOTE: no * for %s or error: expecting char* but it's an int
 
+        for(i=0; i<30; i++){
+            printf("%s\n", (str + i));
+            //NOTE: printf("%s", str[i]) is the same statement
+        }
  
     return 0;
 }
