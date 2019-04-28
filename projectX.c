@@ -4,20 +4,29 @@
 
 int main(){
     
-    char text[50]= "PURPLE MICROWAVE DINASOUR";
-    int key = 3;
-    
-    //print the base address of the array
-    printf("%p\n", text);
-    
-    //print the array as a string
-    printf("%s\n", text);
+    char text[30]= "PURPLE MICROWAVE DINASOUR";
+    int k = 3;
     
     //print the array by cycling through the characters
-    int i, x;
-    for(i=0; i<50;i++){
+    
+    int i;
+    int MAX = 30;
+    for(i=0; i<MAX; i++){
         printf("%c", text[i]);
     }
     printf("\n");
 
+    //Rotation encryption
+    int x, m;
+    for (i=0; i<MAX;i++){
+        m = text[i] - 65;
+        if (text[i]>=65 && text[i]<=90){
+            x = (m + k)%26;
+        }
+        else
+            x = m;
+        x += 65;
+        printf("%c", x);
+    }
+    printf("\n");
 }
