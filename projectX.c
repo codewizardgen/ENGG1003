@@ -10,14 +10,16 @@ int main(){
     ////////////////////////
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
+    char message3[30]= "AAABBBCCCDDDEEEFFFGGGHHHIIIJJJ";
     int key = 3;
+    char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     int length = 30;
     int i;
     
     //call an input function here
     //not used currently
     
-    
+   
     
     //////////////////////////
     // ENCODE
@@ -30,14 +32,28 @@ int main(){
     
     //hard coded input based switch 
     //encode_type=1; //1=rotary, 2=substitution
-    int encode_type = 2;
+    int encode_type = 3;
     if (encode_type==1){
         rotEnc(k, MAX, message);    
     }
     else if (encode_type==2){
         rotDec(k, MAX, message2);
     }
-
+    else {
+         //////////////////
+    //DEVELOPMENT ZONE (before turning into function)
+    /////////////////////
+    // Substitution
+    
+        for (i=0; i<length; i++){
+            if(message3[i]==65){
+                message3[i]= key2[0];
+            }
+            else
+                message3[i]= message3[i];
+        }
+        printf("%s", message3);
+    }
 }
 
 /////////////////////////////////////
