@@ -4,7 +4,7 @@ void rotEnc(int k, int MAX, char *text);
 void rotDec(int k, int MAX, char *text);
 void subEnc(char *k, int MAX, char *text);
 
-int letDif (void);
+void subDec (char *k2, char *k3, int MAX, char *m4);
 
 int main(){
     
@@ -70,7 +70,6 @@ int main(){
                 printf("%d\n", diff);
             }
         }
-        printf("%s\n", message3);
         
         for(i=0; i<MAX; i++){
             if(message4[i]==79){
@@ -85,7 +84,7 @@ int main(){
            printf("%c", temp_text[i]);
         }
         
-        printf("%d\n", letDif());        
+        subDec(key2, key3, MAX, message4);        
              
              //for(j=0; j<MAX; j++){
                 //    if(key2[j]==65){
@@ -245,7 +244,30 @@ void subEnc(char *k, int MAX, char *text){
 //SUBSTITUTION DECRYPTION
 //////////////////////////////////
 
-int letDif (void){
-    int x = 3532167;
-    return x;
+void subDec (char *k2, char *k3, int MAX, char *m4){
+    int i;
+    char temp_text[50];
+    int diff;
+    for(i=0; i<MAX; i++){
+        if(k2[i]==79){            //scan through key2 elements to find O              
+            //printf("%d\n%d\n", i, k3[i]);      //in this case i = 8, key3[i]=73=I
+            //printf("%d\n", k2[i]-k3[i]);            // OUTPUT = 6
+            diff = k2[i]-k3[i];                 //diff between letters to be exchanged
+            //printf("%d\n", diff);
+        }
+    }
+        
+    for(i=0; i<MAX; i++){
+        if(m4[i]==79){
+            temp_text[i] = 79 - diff;
+        }
+        else{
+            temp_text[i] = m4[i];
+        }
+    }
+        //printf("%s", temp_text);
+    for(i=0; i<MAX; i++){
+        printf("%c", temp_text[i]);
+    }
+    printf("\n");
 }
