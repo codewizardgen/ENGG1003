@@ -4,6 +4,8 @@ void rotEnc(int k, int MAX, char *text);
 void rotDec(int k, int MAX, char *text);
 void subEnc(char *k, int MAX, char *text);
 
+int letDif (void);
+
 int main(){
     
     ////////////////////////
@@ -59,7 +61,6 @@ int main(){
         //need to scan through key2 and find address of O (eg) should be &key2[8]
         //then substitute with the letter at the same address in key3
         char temp_text[50];
-        int p, j=0;
         int diff;
         for(i=0; i<MAX; i++){
             if(key2[i]==79){            //scan through key2 elements to find O              
@@ -69,7 +70,7 @@ int main(){
                 printf("%d\n", diff);
             }
         }
-        printf("%s", message3);
+        printf("%s\n", message3);
         
         for(i=0; i<MAX; i++){
             if(message4[i]==79){
@@ -83,7 +84,8 @@ int main(){
         for(i=0; i<MAX; i++){
            printf("%c", temp_text[i]);
         }
-                
+        
+        printf("%d\n", letDif());        
              
              //for(j=0; j<MAX; j++){
                 //    if(key2[j]==65){
@@ -235,4 +237,15 @@ void subEnc(char *k, int MAX, char *text){
 //        printf("%c", temp_text[i]);
 //    }
     printf("%s\n", temp_text);
-    }
+}
+    
+
+
+////////////////////////////////////
+//SUBSTITUTION DECRYPTION
+//////////////////////////////////
+
+int letDif (void){
+    int x = 3532167;
+    return x;
+}
