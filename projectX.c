@@ -46,7 +46,13 @@ int main(){
     // Substitution
     
         for (i=0; i<length; i++){
-            if(message3[i]==65){
+            int j;
+            for(j=0; j<26; j++){
+                if(message3[i]==65+j){
+                    message3[i]=key2[j];
+                }
+            }
+/*            if(message3[i]==65){
                 message3[i]= key2[0];
             }
             else if(message3[i]==66){
@@ -66,6 +72,7 @@ int main(){
             }
             else
                 message3[i]= message3[i];
+        */
         }
         printf("%s", message3);
     }
