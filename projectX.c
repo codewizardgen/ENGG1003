@@ -56,54 +56,11 @@ int main(){
     
         printf("back in development zone\n");
         
-        //subEnc(key2, MAX, message4);
-        //this wont work because not same index
-        //need to scan through key2 and find address of O (eg) should be &key2[8]
-        //then substitute with the letter at the same address in key3
-        char temp_text[50];
-        int diff;
-        for(i=0; i<MAX; i++){
-            if(key2[i]==79){            //scan through key2 elements to find O              
-                printf("%d\n%d\n", i, key3[i]);      //in this case i = 8, key3[i]=73=I
-                printf("%d\n", key2[i]-key3[i]);            // OUTPUT = 6
-                diff = key2[i]-key3[i];                 //diff between letters to be exchanged
-                printf("%d\n", diff);
-            }
-        }
-        
-        for(i=0; i<MAX; i++){
-            if(message4[i]==79){
-                temp_text[i] = 79 - diff;
-            }
-            else{
-                temp_text[i] = message4[i];
-            }
-        }
-        //printf("%s", temp_text);
-        for(i=0; i<MAX; i++){
-           printf("%c", temp_text[i]);
-        }
+
         
         subDec(key2, key3, MAX, message4);        
              
-             //for(j=0; j<MAX; j++){
-                //    if(key2[j]==65){
-                //        //*pAL = key3[j];         //at the index of A in the key(3), what is 
-                //        printf("%d", j);        //there is no A in this example     
-                //    }
-                //}      
-            //}
-           // if(key3[i]==79){
-           //   i = *pAL;
-           // }      
-        //}
-
-        //}
-        //}
-
-
-
-    }       //close else
+    }          //close else
 }              //close main
 
 /////////////////////////////////////
@@ -245,21 +202,45 @@ void subEnc(char *k, int MAX, char *text){
 //////////////////////////////////
 
 void subDec (char *k2, char *k3, int MAX, char *m4){
+    printf("%s\n", m4);     //print message input
+    printf("%d\n", m4[22]-65);
     int i;
     char temp_text[50];
-    int diff;
+    int diff[26];
+    //the following loop finds the diff between letters to be exchanged
     for(i=0; i<MAX; i++){
-        if(k2[i]==79){            //scan through key2 elements to find O              
-            //printf("%d\n%d\n", i, k3[i]);      //in this case i = 8, key3[i]=73=I
-            //printf("%d\n", k2[i]-k3[i]);            // OUTPUT = 6
-            diff = k2[i]-k3[i];                 //diff between letters to be exchanged
-            //printf("%d\n", diff);
+        if(k2[i]==65){
+            diff[0] = k2[i]-k3[i];
+        }
+        if(k2[i]==66){
+            diff[1] = k2[i]-k3[i];
+        }
+        if(k2[i]==67){
+            diff[2] = k2[i]-k3[i];
+        }
+        if(k2[i]==68){
+            diff[3] = k2[i]-k3[i];
+        }
+        if(k2[i]==79){            
+            diff[14] = k2[i]-k3[i];                 
         }
     }
-        
+    //the following loop exchanges the appropriate letter back in
     for(i=0; i<MAX; i++){
+        if(m4[i]==65){
+            temp_text[i] = 65 - diff[0];
+        }
+        if(m4[i]==66){
+            temp_text[i] = 66 - diff[1];
+        }
+        if(m4[i]==67){
+            temp_text[i] = 67 - diff[2];
+        }
+        if(m4[i]==68){
+            temp_text[i] = 68 - diff[3];
+        }
         if(m4[i]==79){
-            temp_text[i] = 79 - diff;
+            temp_text[i] = 79 - diff[14];
         }
         else{
             temp_text[i] = m4[i];
