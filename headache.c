@@ -1,35 +1,23 @@
 #include <stdio.h>
 
 //https://www.youtube.com/watch?v=qEQI4wJ1_9g
-//LEARNING OBJECTIVES:
-//Value of array variable = Address of first element
-//Elements of the array can be accessed using pointers
+//SUBTRACTING POINTERS (same array)
+//EQUALS: number of elements separating 
+//(the elements to which the pointers correspond)
 
 int main(){
-    //learning about arrays and pointers
-    char str[30] = "Let me try a string instead" ;
-    
-    //print the address of the first element of the array
-    //print the value of the name of the array
-    //NOTE: That these two are the same
-    //These are both pointers hence %p required
-    printf("%p %p\n", &str[0], str);
+    //declare and initialise an array
+    int x[] = {1, 2, 3, 4, 5};
+    //declare two pointers
+    int *j, *i;
+    //store the address of the 1st element in j
+    j = &x[1];    //same as j = x + 1
+    //store the address of the 1st element in i
+    i = &x[4];    //same as i = x + 4
  
-    //Print the string of characters using pointer (array name)
-    //REMEMBER: * to dereference the pointer
-    //THUS: obtain the characters (%c) at that address
-    //Create a loop to cycle through each index
-    int i;
-    for (i=0; i<30; i++){
-        printf("%c", *(str+i));
-    }
-    printf("\n");
-    
-    //use %s to read a string
-    //NOTE: no * for %s or error: expecting char* but it's an int
-
-    printf("%s\n", str);
-            
+    printf("%lu", i-j); //same as (x+4)-(x+1) = 3
+    //note used %d initially but error said it's 'long int'
+ 
     return 0;
 }
 
