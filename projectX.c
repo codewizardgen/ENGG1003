@@ -1,10 +1,45 @@
 #include <stdio.h>
 
+/*--------------------FUNCTION PROTOTYPES------------------
+ * Function prototypes are known as forward declaration and are a way to declare functions
+ * Before the function is 'called' in main, the compiler needs to be given:
+    --> The function's name which is unique
+    --> The input variables and their data type (these variables will be passed to the function from main)
+    --> The return data type
+ * SYNTAX: return_type function_name (variable_type(s) Variable_names(s));
+ */
+
+/////////////////////////////
+//FUNCTION PROTOTYPES
+/////////////////////////////
+
 void rotEnc(int k, int MAX, char *text);
+//NAME: rotEnc, which is short for rotation encryption
+//return type: void (the output occurs within the function and nothing returns to main)
+//
+//Input: k and MAX (data type integer or 'ínt') and *text (data type chararacter or 'char')
+//'text' is the same as &text[0] which is the address of the first element of an array called text
+//*text is a pointer to that address
+
 void rotDec(int k, int MAX, char *text);
+//rotDec has return type void and is passed variables k and MAX (type int) and *text (type char)
+//To reiterate *text is a pointer to the address in memory of the first element of the array 'text'
+
 void subEnc(char *k, int MAX, char *text);
+//subEnc has no return value (hence void)
+//input variables: pointer to the address of the first element of array named 'k' (data type char)
+                // pointer to the address of the first element of array named 'text' (data type char)
+                // MAX of integer data type
 
 void subDec (char *k2, char *k3, int MAX, char *m4);
+//subDec has no return type: void
+//INPUT: 3 pointers (type char) to the memory addresses of the first elements of the arrays k2, k3 and m4
+//         and the integer MAX
+
+
+/////////////////////////////////////////
+//MAIN
+////////////////////////////////////////
 
 int main(){
     
@@ -38,7 +73,8 @@ int main(){
     //create new variable names to be passed to each function
     
     //hard coded input based switch 
-    //encode_type=1; //1=rotary, 2=substitution
+    //change encode_type to change the function
+    //1=rotary encryption, 2= rotary decryption 3= substitution encyption
     int encode_type = 4;
     if (encode_type==1){
         rotEnc(k, MAX, message);    
@@ -68,7 +104,18 @@ int main(){
 /////////////////////////////////////
 //FUNCTION DEFINITIONS
 /////////////////////////////////////   
-
+/*---------ROTATION ENCRYPTION FUNCTION: 'RotEnc'---------------------------
+INPUT:  -->An array element x (each letter in the string of text to be encrypted)
+        Each letter has a numeric value (google ASCII table)
+        The letters recieved as input for this fuction have been normalised,
+        such that A = 0, B = 1, ... Z = 25.
+        --> Maximum message length (MAX)
+OUTPUT: A print statement with the encripted text
+How it works:   --> The key specifies rotation amount
+                --> %26 calculates the remainder when (x + key) is divided by 26.
+                This means that 26 becomes zero, 27 becomes 1 etc,
+                which keeps all our values between (or equal to) 0 and 25
+                --> In order to obtain a letter (ASCII) again 65 is added to x*/
 void rotEnc(int k, int MAX, char *text){
     //input variables - m for message, k for key
     
