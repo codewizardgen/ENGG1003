@@ -40,6 +40,14 @@ char getInput (void);
 //function to scan message from user
 //no variables are passed to it
 //return type is char
+//not currently working (ignore)
+
+int welcome (void);
+//the welcome function takes user input and returns an integer
+
+int stringLength(char *str);
+//The asterisk acts as a pointer to the first element of the string 'str'
+//returns the integer length of the string
 
 
 /////////////////////////////////////////
@@ -90,35 +98,66 @@ int main(){
     //////////////////////////
     // ENCODE
     ///////////////////////////
-    //passed inputs to follow
-    //create new variable names to be passed to each function
+    //inputs passed to functions to follow
+    //new variable names were created to be passed to seperate function
     int k = key;
     int MAX = length;
     
     //Substitution decryption inputs (ignore as not working)
-    int MAX4 = 40;
-    int length4 = 40;
+    //int MAX4 = 40;
+    //int length4 = 40;
     
     
     
     /////////////////////////////////////////
-    //HARD CODE INPUT BASED SWITCH 
-    //change encode_type to change the function
+    //INPUT BASED SWITCH 
+    //change encode_type to change the function called
     //////////////////////////////////////////
     //1=rotary encryption
     //2= rotary decryption
     //3= substitution encyption
     //4= substitution decription
     
-    int encode_type = 1;
+    int encode_type = welcome();
+    //set the variable encode type to the integer value returned by the welcome menu user input
+    
     if (encode_type==1){
-        rotEnc(k, MAX, message);    
+        //if the user enters 1 for rotation encryption
+        
+        printf("You've selected rotation encryption! Here's the encrypted text based on your encryption key:\n");
+        //print a message to the user to confirm their selection
+        
+        rotEnc(k, MAX, message);
+        //call the rotation encryption function and pass it:
+        //--> the rotation key (HARD CODED ABOVE)
+        //--> the message to be encrypted (HARD CODED ABOVE)
+        //--> MAX this is the maximum stringLength (HARD CODED ABOVE)
     }
+    
     else if (encode_type==2){
+        //if the user enters 2 for rotation decryption
+        
+        printf("Rotation decryption! Your message has been decrypted:\n");
+        //print a message to the user to confirm their selection
+        
         rotDec(k, MAX, message2);
+        //call the rotation decryption function and pass it:
+        //--> the rotation key (HARD CODED ABOVE)
+        //--> message2 to be decrypted (HARD CODED ABOVE)
+        //--> MAX this is the maximum stringLength (HARD CODED ABOVE)
     }
+    
     else if (encode_type==3){
+        //if the user enters 3 for substitution encryption
+        
+        printf("Substitution encryption eh, here's your encrypted text:\n");
+        //print a message to the user based on their selection
+        
         subEnc(key2, MAX, message3);
+        //call the substitution encryption function and pass it:
+        //--> the substitution key2 (HARD CODED ABOVE)
+        //--> message3 to be encrypted (HARD CODED ABOVE)
+        //--> MAX this is the maximum stringLength (HARD CODED ABOVE)
     }
 
     else {
@@ -127,7 +166,7 @@ int main(){
     /////////////////////
     // Substitution decryption
     
-        printf("This function is currently under development\n");
+        printf("This function is currently under development, sorry for any inconvenience\n");
         
 
         //getInput();
@@ -504,4 +543,48 @@ char getInput (void){
        printf("%c", input_text[i]); 
     }
     return *input_text;
+}
+
+int welcome (void){
+	    int s;                 //declare an integer s which will store user selection
+    	do{
+    	printf("\n\nWelcome to Cipher Central! Encrypting and decrypting messages since '19.\n");
+    	printf("ENTER YOUR TEXT IN THE HARD CODE INPUTS FIRST\n");
+    	printf("Please make a selection (eg. 1<ENTER>):\n");  
+    	printf("	1) Rotation cipher encryption\n");
+    	printf("	2) Rotation cipher decryption\n");
+    	printf("	3) Substitution cipher encryption\n");
+    	printf("	4) Substitution cipher decryption\n");
+    	printf("What shall it be?	");
+    	//the print statements above are written seperately to make the code more readable
+    	
+    	scanf("%d", &s);
+	   }
+	   while (s!=1 && s!=2 && s!=3 && s!=4);
+        return s;
+	}
+	
+	/*-------------STRING LENGTH FUNCTION-------------
+INPUT: 		One variable of type char. (Note that in this case the variable is an array).
+			The asterisk acts as a pointer to the first element of the string 
+RETURN: 	The function returns the length of the string as an integer */
+int stringLength(char *str) {		//This block is the 'function definition' which containes the operational code for out function		
+	int length = 0;					//The integer variable 'length' has been declared, and initialised as 0
+									//This variable will be used as an indexing tool
+	char n;							//The character (data type 'char') variable n has been declared
+									//n will be used to hold the numerical value of each element of the string 
+	
+	while(str[length] !=0) {		//Let's consider the first execution of this block of code
+									//length has been initialised as 0 --> initially str[0] which is a 'pointer' to the first char of the array 't'
+									//In ASCII the letter 't' has numeric value 116 (Confused? Google ASCII table)
+									//Thus the condition is met (evaluated true as 116 doesn't equal zero) and the loop will be executed
+		n = str[length];			//n has been assigned the value of str[length], which has value of 116 during this execution
+		if(n != 0){					//Again, the condition is true as n (116) is not zero, so the if statement will execute
+			length++;				//The length variable has been incremented
+									//This loop will continue to execute, incrementing the length by 1 each time
+									//Thus, a pointer to each sequential array element is created until the end of the string
+									//At the end of the string the absence of a character is a NULL and evaluates to 0, the loop is exited.
+		}
+	}
+	return length;					//The last length stored is the return value and the length of the string! Yay!
 }
