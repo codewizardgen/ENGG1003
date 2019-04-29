@@ -98,12 +98,16 @@ int main(){
         
         subDec(key2, key3, MAX4, message4);        
              
-    }          //close else
-}              //close main
+    }          
+    //close else
+    
+}              
+//close main
 
 /////////////////////////////////////
-//FUNCTION DEFINITIONS
+//FUNCTION DEFINITIONS contain the code to be executed when a function is called.
 /////////////////////////////////////   
+
 /*---------ROTATION ENCRYPTION FUNCTION: 'RotEnc'---------------------------
 INPUT:  --> A pointer to the memory address of the first element of an array 'text'
             The array text contains the message to be encrypted 
@@ -113,8 +117,9 @@ INPUT:  --> A pointer to the memory address of the first element of an array 'te
         --> The integer key 'k'
 OUTPUT: A print statement with the encripted text
 How it works:   --> The key specifies rotation amount
-                --> 
-                --> In order to obtain a letter (ASCII) again 65 is added to x*/
+                --> read integrated comments
+*/
+
 void rotEnc(int k, int MAX, char *text){
     //input variables - m for message, k for key
     
@@ -168,21 +173,61 @@ void rotEnc(int k, int MAX, char *text){
 }
 //end rotEnc definition block of code
 
-
+/*---------ROTATION DECRYPTION FUNCTION: 'RotDec'---------------------------
+INPUT:  --> A pointer to the memory address of the first element of an array 'text'
+            The array text contains the message to be decrypted 
+        --> Maximum message length (MAX)
+        --> The integer key 'k'
+OUTPUT: A print statement with the decrypted text
+How it works:   --> The key specifies rotation amount
+                --> read integrated comments
+*/
 void rotDec(int k, int MAX, char *text){
-        int x, c, i;
+    int x, c, i;
+    //i is an index counter so we can cycle through each element of the array
+    //m will sore the normalised (-65) integer value of each array element
+    //x will be used to store the new integer value of each element after encryption
+    
     for (i=0; i<MAX;i++){
+        //this loop exits when MAX is reached and i is incremeted at the end of each execution
+        //purpose is to allow each element (letter) of the array to be decypted
+        
         c = text[i] - 65;
+        //The letter at each element of the array is normalised by subtracting 65 stored as c
+        //i.e after this line of code the integer values of the letters in the array become
+        //       A = 0, B = 1, ... Z = 25.
+        
         if (text[i]>=65 && text[i]<=90){
+            //Ony capital letters will be decrypted
+            
             x = (c - k)%26;
+            //The normilised letter (c) is shifted by the key (k) and stored in x
+            //%26 calculates the remainder when (c - k) is divided by 26.
+            //This means that 26 becomes zero, 27 becomes 1 etc,
+            //which keeps all our values between (or equal to) 0 and 25
+            
         }
+        //end if
+        
         else
+        //for all other characters in the array that aren't capital letters
+        
             x = c;
+            //stay the same
+            
         x += 65;
+        // reverse normalisation by adding 65 to x and storing it in x
+        
         printf("%c", x);
+        //print every letter after decryption
     }
+    //end for
+    
     printf("\n");
+    //new line for clarity, to appear after all array elements are printed
 }
+//end rotDec definition code block
+
 
 void subEnc(char *k, int MAX, char *text){
 //if a character of message3 is A(65) it will be changed to the letter at the first memory address of key (k)
