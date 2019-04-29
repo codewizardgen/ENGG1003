@@ -439,10 +439,17 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
 char getInput (void){
     int i;
     char input_text [40];
-    printf("Please enter your message text in CAPITAL LETTERS: \n");
+    printf("Please enter your message text in CAPITAL LETTERS then hit <space> <enter>: \n");
     //prompt the user to enter the text to be encrypted/decrypted
-    scanf("%c", input_text);
     
+    //scanf("%s", input_text);
+    //LIMITATION: currently only saving the first word
+    
+    scanf("%[^'\n']s", input_text);
+    //found this format specifier at:
+    //https://www.quora.com/How-do-I-read-and-display-a-full-sentence-in-C
+    
+    printf("You entered: \n");
     for (i=0; i<40; i++){
        printf("%c", input_text[i]); 
     }
