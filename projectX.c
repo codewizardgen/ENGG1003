@@ -49,11 +49,13 @@ int stringLength(char *str);
 //The asterisk acts as a pointer to the first element of the string 'str'
 //returns the integer length of the string
 //more infor in definition
+//not currently implemented
 
 void helloHousekeeping (char *x, int MAX);
 //cleaning function to zero all of the memory allocated to arrays before use
 //implementation of this function would get rid of old garbage/irrelevant values
 //more infor in definition
+//not currently implemented
 
 /////////////////////////////////////////
 //MAIN
@@ -94,7 +96,7 @@ int main(){
     //planned to implement stringLength function but haven't had time
     
     int i;
-    //index counter variable (unnessesary here? but don't want to break code with 1.5h to submission)
+    //index counter variable (unnessesary here, but don't want to break code with 30 min to submission)
     
     //plan to call an input function here
     //not used currently because the program keeps exiting after it's called
