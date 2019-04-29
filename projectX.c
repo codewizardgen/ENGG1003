@@ -36,6 +36,8 @@ void subDec (char *k2, char *k3, int MAX, char *m4);
 //INPUT: 3 pointers (type char) to the memory addresses of the first elements of the arrays k2, k3 and m4
 //         and the integer MAX
 
+char getInput (void);
+
 
 /////////////////////////////////////////
 //MAIN
@@ -95,8 +97,8 @@ int main(){
         printf("back in development zone\n");
         
 
-        
-        subDec(key2, key3, MAX4, message4);        
+        getInput();
+        //subDec(key2, key3, MAX4, message4);        
              
     }          
     //close else
@@ -403,6 +405,7 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
             diff[14] = k2[i]-k3[i];                 
         }
     }
+    
     //the following loop exchanges the appropriate letter back in
     for(i=0; i<MAX; i++){
         if(m4[i]==65){
@@ -432,3 +435,16 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
     printf("\n");
     printf("%d", temp_text[22]);
 }       //close subDec
+
+char getInput (void){
+    int i;
+    char input_text [40];
+    printf("Please enter your message text in CAPITAL LETTERS: \n");
+    //prompt the user to enter the text to be encrypted/decrypted
+    scanf("%c", input_text);
+    
+    for (i=0; i<40; i++){
+       printf("%c", input_text[i]); 
+    }
+    
+}
