@@ -37,6 +37,9 @@ void subDec (char *k2, char *k3, int MAX, char *m4);
 //         and the integer MAX
 
 char getInput (void);
+//function to scan message from user
+//no variables are passed to it
+//return type is char
 
 
 /////////////////////////////////////////
@@ -46,38 +49,61 @@ char getInput (void);
 int main(){
     
     ////////////////////////
-    //hard coded inputs 
+    //HARD CODE INPUTS
     ////////////////////////
+    
+    //TEXT FOR ROTATION ENCRYPTION:
     char message[30]= "PURPLE MICROWAVE DINASOUR";
+    
+    //TEXT FOR ROTATION DECRYPTION:
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    char message3[40]= "DAD EGGS JUMP STACK ZOOM!";
-    char message4[40]= "RQR TUUL PXDH LZQEA MGGD!";
+    
+    //ROTATION KEY:
     int key = 3;
+    
+    //TEXT FOR SUBSTITUTION ENCRYPTION:
+    char message3[40]= "DAD EGGS JUMP STACK ZOOM!";
+    
+    //TEXT FOR SUBSTITUTION DECRYPTION:
+    char message4[40]= "RQR TUUL PXDH LZQEA MGGD!";
+    
+    //SUBSTRITUTION KEY:
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    
+    //SUBSTITUTION REFERENCE, DO NOT CHANGE:
     char key3[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    
     int length = 40;
     int i;
     
     //call an input function here
     //not used currently
-    
+    //char message[30];
+    //message [30] = getInput();
    
-    
     //////////////////////////
     // ENCODE
     ///////////////////////////
     int k = key;
     int MAX = length;
+    
     int MAX4 = 40;
     int length4 = 40;
     
     //passes inputs;
     //create new variable names to be passed to each function
     
+    /////////////////////////////////////////
     //hard coded input based switch 
     //change encode_type to change the function
-    //1=rotary encryption, 2= rotary decryption 3= substitution encyption
-    int encode_type = 4;
+    //////////////////////////////////////////
+    //1=rotary encryption
+    //2= rotary decryption
+    //3= substitution encyption
+    //4= substitution decription
+    
+    int encode_type = 1;
     if (encode_type==1){
         rotEnc(k, MAX, message);    
     }
@@ -436,9 +462,15 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
     printf("%d", temp_text[22]);
 }       //close subDec
 
+
+/*------------USER INPUT via console 'getInput' --------------------*/
 char getInput (void){
     int i;
+    // index counter variable 
+    
     char input_text [40];
+    //array to store input
+    
     printf("Please enter your message text in CAPITAL LETTERS then hit <space> <enter>: \n");
     //prompt the user to enter the text to be encrypted/decrypted
     
@@ -450,6 +482,10 @@ char getInput (void){
     //https://www.quora.com/How-do-I-read-and-display-a-full-sentence-in-C
     
     printf("You entered: \n");
+    //print the entered message back to confirm what was entered
+    //this will prob throw random letters/symbols with short words
+    // haven't had time to implement my cleaning function yet
+    
     for (i=0; i<40; i++){
        printf("%c", input_text[i]); 
     }
