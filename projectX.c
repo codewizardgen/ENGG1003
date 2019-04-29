@@ -13,8 +13,8 @@ int main(){
     ////////////////////////
     char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    char message3[40]= "IF IT'S YELLOW LET IT MELLOW!";
-    char message4[40]= "OY OZ'L NTSSGV STZ OZ DTSSGV!";
+    char message3[40]= "DAD EGGS JUMP STACK ZOOM!";
+    char message4[40]= "RQR TUUL PXDH LZQEA MGGD!";
     int key = 3;
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     char key3[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -31,6 +31,8 @@ int main(){
     ///////////////////////////
     int k = key;
     int MAX = length;
+    int MAX4 = 40;
+    int length4 = 40;
     
     //passes inputs;
     //create new variable names to be passed to each function
@@ -58,7 +60,7 @@ int main(){
         
 
         
-        subDec(key2, key3, MAX, message4);        
+        subDec(key2, key3, MAX4, message4);        
              
     }          //close else
 }              //close main
@@ -203,13 +205,14 @@ void subEnc(char *k, int MAX, char *text){
 
 void subDec (char *k2, char *k3, int MAX, char *m4){
     printf("%s\n", m4);     //print message input
-    printf("%d\n", m4[22]-65);
+    printf("%d\n%d\n", m4[22], m4[22]-65);
+    printf("%d\n", k2[12]-k3[12]);
     int i;
     char temp_text[50];
-    int diff[26];
+    char diff[26];
     //the following loop finds the diff between letters to be exchanged
-    for(i=0; i<MAX; i++){
-        if(k2[i]==65){
+    for(i=0; i<26; i++){
+        if(k2[i]==65){                      //find diff b/n A(65) in k2 and k3(normal order alphabet)
             diff[0] = k2[i]-k3[i];
         }
         if(k2[i]==66){
@@ -219,7 +222,9 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
             diff[2] = k2[i]-k3[i];
         }
         if(k2[i]==68){
+            printf("i: %d\n", i);
             diff[3] = k2[i]-k3[i];
+            printf("%d\n", diff[3]);
         }
         if(k2[i]==79){            
             diff[14] = k2[i]-k3[i];                 
@@ -238,17 +243,19 @@ void subDec (char *k2, char *k3, int MAX, char *m4){
         }
         if(m4[i]==68){
             temp_text[i] = 68 - diff[3];
+            printf("%d", temp_text[i]);
         }
         if(m4[i]==79){
             temp_text[i] = 79 - diff[14];
         }
-        else{
+        else if (m4[i]<65 || m4[i]>90){
             temp_text[i] = m4[i];
         }
     }
-        //printf("%s", temp_text);
+        printf("%s", temp_text);
     for(i=0; i<MAX; i++){
         printf("%c", temp_text[i]);
     }
     printf("\n");
-}
+    printf("%d", temp_text[22]);
+}       //close subDec
