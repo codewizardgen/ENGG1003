@@ -48,7 +48,12 @@ int welcome (void);
 int stringLength(char *str);
 //The asterisk acts as a pointer to the first element of the string 'str'
 //returns the integer length of the string
+//more infor in definition
 
+void helloHousekeeping (char *x, int MAX);
+//cleaning function to zero all of the memory allocated to arrays before use
+//implementation of this function would get rid of old garbage/irrelevant values
+//more infor in definition
 
 /////////////////////////////////////////
 //MAIN
@@ -82,10 +87,10 @@ int main(){
     
     //SUBSTITUTION REFERENCE, DO NOT CHANGE:
     char key3[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
+    //prob should make a const char but seeing as input from stdin not working it doesn't seem neccessary
     
     int length = 40;
-    //arbitrary number, will limit ALL functions as it is the exit condition for loops
+    //arbitrary number, will limit ALL functions as it is the exit condition for loops within them
     //planned to implement stringLength function but haven't had time
     
     int i;
@@ -587,4 +592,24 @@ int stringLength(char *str) {		//This block is the 'function definition' which c
 		}
 	}
 	return length;					//The last length stored is the return value and the length of the string! Yay!
+}
+
+/*------CLEANING FUNCTION: 'helloHousekeeping'----------------
+What it does --> Sets all the memory addresses allocated to the array to 0
+             --> Gets rid of old garbage numbers that may be stored there
+INPUT:  Pointer to the first element of array and 
+        the MAX number of elements in the array 
+OUTPUT: there is none - this is why void is used before the name 'helloHousekeeping'
+How it works --> The for loop systematically initiallises each array element 
+                 to zero. 
+             --> The syntax *x is a 'pointer' to the first element of array x
+             --> At the end of each loop the index number increments,
+             so on subsequent run throughs the next sequential element is zeroed
+             --> The loop exits once the index reaches MAX (defined initially)*/
+void helloHousekeeping (char *x, int MAX){
+    int index;
+    for (index = 0; index < MAX; index++){
+        x[index] = 0;
+        return;
+    }   
 }
