@@ -53,9 +53,10 @@ int main(){
     ////////////////////////
     
     //TEXT FOR ROTATION ENCRYPTION:
-    //char message[30]= "PURPLE MICROWAVE DINASOUR";
+    char message[30]= "PURPLE MICROWAVE DINASOUR";
     char message [30];
-    *message = getInput();
+    int message_pointer = &message; 
+    message_pointer = getInput();
     printf("%s", message);
     
     //TEXT FOR ROTATION DECRYPTION:
