@@ -229,21 +229,56 @@ void rotDec(int k, int MAX, char *text){
 //end rotDec definition code block
 
 
+/*---------SUBSTITUTION ENCRYPTION FUNCTION: 'subEnc'---------------------------
+INPUT:  --> A pointer to the memory address of the first element of an array 'text'
+            The array text contains the message to be encrypted 
+        --> Maximum message length (MAX)
+        --> A pointer to the memory adress of the first element of the array 'k' (key)
+OUTPUT: A print statement with the encrypted text
+How it works:   --> The key specifies which letters will be substituted with another
+                --> read integrated comments
+                --> NOTE: this function is comprised by a series of if satements
+                --> They correspond to  ASCII integer values of these letters
+                    and are written in alphabetical order
+                --> Each if statement converts a letter of the alphabet to 
+                the letter in the key which occurs at the same index as the original letter
+                occurs in the alphabet
+*/
 void subEnc(char *k, int MAX, char *text){
 //if a character of message3 is A(65) it will be changed to the letter at the first memory address of key (k)
 //if a character of message3 is B(66) it will be changed to the letter at the second memory address of key (k) etc.
     int i;
+    //index variable
+    
     char temp_text[50];
+    //array to store encrypted message
+    
     for(i=0; i<MAX; i++){
-        if(text[i]==65){                 
+        //cycle through each letter in the input message text
+        
+        if(text[i]==65){
+            //if an A (integer value 65) is found in 'text' (the input message)
+            
             temp_text[i]= k[0];
+            //in array 'text_temp' at the same index (i) location as letter A was found in input 'text' array
+            //store the integer value of the first element of the array 'k'
+            // in this case k[0] = 81 = Q
         }
         if(text[i]==66){
+            //if the element of the array is a B
+            
             temp_text[i]= k[1];
+            //B is replaced by the second element of the array key
+            
         }
+        
         if(text[i]==67){
+            // if the element of the array 'text' is C
+            
             temp_text[i]= k[2];
+            //C is replaced by the letter at k index 2
         }
+        
         if(text[i]==68){
             temp_text[i]= k[3];
         }
@@ -313,16 +348,26 @@ void subEnc(char *k, int MAX, char *text){
         if(text[i]==90){
             temp_text[i]= k[25];
         }
+        
         else if (text[i]<65||text[i]>90) {
-            temp_text[i]= text[i];       
+            // for all characters that are not A through Z
+            
+            temp_text[i]= text[i];    
+            //store the value of text[] in temp_text at the same index as it occurs at in text[]
         }
+        //end else if
            
-        } 
+        }
+        //end for
   
 //    for(i=0; i<MAX; i++){
 //        printf("%c", temp_text[i]);
 //    }
     printf("%s\n", temp_text);
+    //text_temp is a pointer to the memory address of the first element of array called text_temp
+    //text_temp = &text_temp[0]
+    //%s format specifier will print the string of text stored in temp_text[]
+    
 }
     
 
