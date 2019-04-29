@@ -105,33 +105,69 @@ int main(){
 //FUNCTION DEFINITIONS
 /////////////////////////////////////   
 /*---------ROTATION ENCRYPTION FUNCTION: 'RotEnc'---------------------------
-INPUT:  -->An array element x (each letter in the string of text to be encrypted)
-        Each letter has a numeric value (google ASCII table)
-        The letters recieved as input for this fuction have been normalised,
-        such that A = 0, B = 1, ... Z = 25.
+INPUT:  --> A pointer to the memory address of the first element of an array 'text'
+            The array text contains the message to be encrypted 
+            Each element of the array is a letter in the string of text to be encrypted
+            Each letter has a numeric value (google ASCII table)
         --> Maximum message length (MAX)
+        --> The integer key 'k'
 OUTPUT: A print statement with the encripted text
 How it works:   --> The key specifies rotation amount
-                --> %26 calculates the remainder when (x + key) is divided by 26.
-                This means that 26 becomes zero, 27 becomes 1 etc,
-                which keeps all our values between (or equal to) 0 and 25
+                --> 
                 --> In order to obtain a letter (ASCII) again 65 is added to x*/
 void rotEnc(int k, int MAX, char *text){
     //input variables - m for message, k for key
     
     int x, m, i;
+    //i is an index counter so we can cycle through each element of the array
+    //m will sore the normalised (-65) integer value of each array element
+    //x will be used to store the new integer value of each element after encryption
+    
     for (i=0; i<MAX;i++){
+        //this loop exits when MAX is reached and i is incremeted at the end of each execution
+        //purpose is to allow each element (letter) of the array to be encypted
+        
         m = text[i] - 65;
+        //The letter at each element of the array is normalised by subtracting 65
+        //i.e after this line of code the integer values of the letters in the array become
+        //       A = 0, B = 1, ... Z = 25.
+        
         if (text[i]>=65 && text[i]<=90){
+            //condition here means that only characters A through Z will be encripted
+            
             x = (m + k)%26;
+            //The normilised letter (m) is shifted by the key (k) and stored in x
+            //%26 calculates the remainder when (x + k) is divided by 26.
+            //This means that 26 becomes zero, 27 becomes 1 etc,
+            //which keeps all our values between (or equal to) 0 and 25
+            
         }
+        // end if
+        
         else
+        //for all other characters in the array that are not a letter from A to Z
+            
             x = m;
+            //the value will stay the same
+            //spaces and apostrophies etc will not be altered by encryption
+            
         x += 65;
+        // add 65 to x and store it in x
+        // this brings our integer values back into the range including 65 to 90
+        // meaning that when the characters are printed they will display as 
+        //encrypted upper case letters
+        
         printf("%c", x);
+        //each element of the array will be printed to the console after encryption
     }
+    //end else
+    
     printf("\n");
+    //new line for clarity
+    
 }
+//end rotEnc definition block of code
+
 
 void rotDec(int k, int MAX, char *text){
         int x, c, i;
