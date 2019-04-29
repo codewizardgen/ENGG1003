@@ -53,10 +53,14 @@ int main(){
     ////////////////////////
     
     //TEXT FOR ROTATION ENCRYPTION:
-    char message[30]= "PURPLE MICROWAVE DINASOUR";
+    //char message[30]= "PURPLE MICROWAVE DINASOUR";
+    char message [30];
+    *message = getInput();
+    printf("%s", message);
     
     //TEXT FOR ROTATION DECRYPTION:
     char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
+    printf("%s", message2);
     
     //ROTATION KEY:
     int key = 3;
@@ -133,8 +137,15 @@ int main(){
 //close main
 
 /////////////////////////////////////
-//FUNCTION DEFINITIONS contain the code to be executed when a function is called.
+//FUNCTION DEFINITIONS contain the operational code to be executed when a function is called.
 /////////////////////////////////////   
+
+/*
+ SYNTAX: 
+ returnDataType functionName (argumentDataType(s) argumentName(s)){
+     DO STUFF
+ }
+ */
 
 /*---------ROTATION ENCRYPTION FUNCTION: 'RotEnc'---------------------------
 INPUT:  --> A pointer to the memory address of the first element of an array 'text'
@@ -489,5 +500,5 @@ char getInput (void){
     for (i=0; i<40; i++){
        printf("%c", input_text[i]); 
     }
-    
+    return *input_text;
 }
