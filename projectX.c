@@ -53,25 +53,22 @@ int main(){
     ////////////////////////
     
     //TEXT FOR ROTATION ENCRYPTION:
-    char message[30]= "PURPLE MICROWAVE DINASOUR";
-    char message [30];
-    int message_pointer = &message; 
-    message_pointer = getInput();
-    printf("%s", message);
-    
+    char message[30]= "INPUT TEXT GOES HERE";
+       
     //TEXT FOR ROTATION DECRYPTION:
-    char message2[30]= "SXUSOH PLFURZDYH GLQDVRXU";
-    printf("%s", message2);
+    char message2[30]= "INPUT TEXT GOES HERE";
     
+    //##########################
     //ROTATION KEY:
     int key = 3;
     
     //TEXT FOR SUBSTITUTION ENCRYPTION:
-    char message3[40]= "DAD EGGS JUMP STACK ZOOM!";
+    char message3[40]= "TEXT GOES HERE!";
     
     //TEXT FOR SUBSTITUTION DECRYPTION:
-    char message4[40]= "RQR TUUL PXDH LZQEA MGGD!";
+    char message4[40]= "THIS FUNCTION DOESN'T WORK YET!";
     
+    //###########################
     //SUBSTRITUTION KEY:
     char key2[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     
@@ -80,27 +77,32 @@ int main(){
     
     
     int length = 40;
-    int i;
+    //arbitrary number, will limit ALL functions as it is the exit condition for loops
+    //planned to implement stringLength function but haven't had time
     
-    //call an input function here
-    //not used currently
-    //char message[30];
-    //message [30] = getInput();
+    int i;
+    //index counter variable (unnessesary here? but don't want to break code with 1.5h to submission)
+    
+    //plan to call an input function here
+    //not used currently because the program keeps exiting after it's called
+    //need to research returning pointers and how to properly set that memory allocation to array in main
    
     //////////////////////////
     // ENCODE
     ///////////////////////////
+    //passed inputs to follow
+    //create new variable names to be passed to each function
     int k = key;
     int MAX = length;
     
+    //Substitution decryption inputs (ignore as not working)
     int MAX4 = 40;
     int length4 = 40;
     
-    //passes inputs;
-    //create new variable names to be passed to each function
+    
     
     /////////////////////////////////////////
-    //hard coded input based switch 
+    //HARD CODE INPUT BASED SWITCH 
     //change encode_type to change the function
     //////////////////////////////////////////
     //1=rotary encryption
@@ -125,10 +127,10 @@ int main(){
     /////////////////////
     // Substitution decryption
     
-        printf("back in development zone\n");
+        printf("This function is currently under development\n");
         
 
-        getInput();
+        //getInput();
         //subDec(key2, key3, MAX4, message4);        
              
     }          
