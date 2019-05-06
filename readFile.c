@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void zero (char *x);
+void zero (int *x);
 
 int main(void)
 {
@@ -14,11 +14,15 @@ int main(void)
         for(j=0; j<7; j++){
             zero(&array[i][j]);
             fscanf(input, "%d", &array[i][j]);
-            printf("%d", array[i][j]);
-            if (array[i]==7){
+            if (array[i][j]==0){
+                break;
+            }
+            printf("%d ", array[i][j]);
+            if (j==6){
                 printf("\n");
             //    break;
             }
+
         }
     }
     
@@ -26,6 +30,6 @@ int main(void)
     return 0;
 }
 
-void zero (char *x){
+void zero (int *x){
     *x = 0;
 }
