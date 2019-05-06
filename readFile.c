@@ -4,19 +4,21 @@ void zero (char *x);
 
 int main(void)
 {
-    char array [40];
+    int array [7][7];
     
     FILE *input;
     input = fopen("hello", "r");
     
-    int i;
-    for (i=0; i<40; i++){
-        zero(&array[i]);
-        fscanf(input, "%c", &array[i]);
-        printf("%c", array[i]);
-        if (array[i]==0){
-            printf("\n");
-            break;
+    int i, j;
+    for (i=0; i<7; i++){
+        for(j=0; j<7; j++){
+            zero(&array[i][j]);
+            fscanf(input, "%d", &array[i][j]);
+            printf("%d", array[i][j]);
+            if (array[i]==7){
+                printf("\n");
+            //    break;
+            }
         }
     }
     
