@@ -34,12 +34,39 @@ int main() {
             blue += image[x][y][2];
         }
     }
-    //5*5 is the number of pixels
+    //calculate mean intensity for each colour by dividing by 5*5 (number of pixels)
     red /= (5*5);
     green /= (5*5);
     blue /= (5*5);
     
     printf("%f %f %f\n", red, green, blue);
-
+    
+    //find the pixel with the highest intesity of red, that with green and blue also (3 separate pixels)
+    float redHigh = 0, greenHigh = 0, blueHigh = 0, rx, ry, gx, gy, bx, by;
+    for (x = 0; x < 5; x++){
+        for(y = 0; y < 5; y++){
+            if (image[x][y][0]>redHigh){
+                redHigh = image[x][y][0];
+                rx = x;
+                ry = y;
+                continue;
+            }
+            if (image[x][y][1]>greenHigh){
+                greenHigh = image[x][y][1];
+                gx = x;
+                gy = y;
+                continue;
+            }
+            if (image[x][y][2]>blueHigh){
+                blueHigh = image [x][y][2];
+                bx = x;
+                by = y;
+                continue;
+            }
+        }
+    }
+    printf("Highest intesity red is %f located at image[%f][%f]\n", redHigh, rx, ry);
+    printf("Highest intesity green is %f located at image[%f][%f]\n", greenHigh, gx, gy);
+    printf("Highest intesity blue is %f located at image[%f][%f]\n", blueHigh, bx, by);
     return 0;
 }
